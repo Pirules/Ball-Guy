@@ -1349,6 +1349,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 734760912675021630, guid: 89064ef83af73a04ebf78278d0e3bee2, type: 3}
+      propertyPath: Bala
+      value: 
+      objectReference: {fileID: 8033506663059128789, guid: 78625cf3b1e59445da79ea4335b2ddef, type: 3}
     - target: {fileID: 734760912675021631, guid: 89064ef83af73a04ebf78278d0e3bee2, type: 3}
       propertyPath: m_RootOrder
       value: 5
