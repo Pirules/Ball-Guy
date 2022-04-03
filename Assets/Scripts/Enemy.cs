@@ -26,7 +26,14 @@ public class Enemy : MonoBehaviour
         
     }
     void OnCollisionEnter(Collision c){
-        TakeDamage(10);
+        GameObject projectil = c.gameObject;
+        if (projectil.CompareTag("Bala")){
+            TakeDamage(10);
+        }
+
+        if (projectil.CompareTag("MegaBala")){
+            TakeDamage(25);
+        }
     }
        
     void TakeDamage(int damage){
