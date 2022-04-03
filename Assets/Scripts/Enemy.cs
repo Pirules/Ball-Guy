@@ -18,7 +18,11 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Space)){
-        }     
+        }  
+
+        if (currentHealth <= 0){
+            Destroy(gameObject);
+        }   
         
     }
     void OnCollisionEnter(Collision c){

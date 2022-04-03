@@ -7,7 +7,7 @@ public class Ballguy : MonoBehaviour
 {
     public float velocidad = 5;
     public float Health = 100; 
-    public GameObject original;
+    public GameObject Bala;
     public Transform referenciaDePosicion;
     [SerializeField]
     private Rigidbody rb;
@@ -28,14 +28,14 @@ public class Ballguy : MonoBehaviour
         //print(horizontal);
         if(Input.GetKeyDown(KeyCode.Space)){
         Instantiate(
-            original, 
+            Bala, 
             referenciaDePosicion.position, 
             referenciaDePosicion.rotation
         );
         }
         if (Input.GetKeyDown ("joystick 1 button 0")){
         Instantiate(
-            original, 
+            Bala, 
             referenciaDePosicion.position, 
             referenciaDePosicion.rotation
         );
