@@ -10,6 +10,7 @@ public class Ballguy : MonoBehaviour
     public GameObject Bala;
     public GameObject MegaBala;
     public Transform referenciaDePosicion;
+    public Transform spawnerMegaBala;
     [SerializeField]
     private Rigidbody rb;
     // Start is called before the first frame update
@@ -28,19 +29,28 @@ public class Ballguy : MonoBehaviour
 
         //print(horizontal);
         if(Input.GetKeyDown(KeyCode.Space)){
-        Instantiate(
-            Bala, 
-            referenciaDePosicion.position, 
-            referenciaDePosicion.rotation
-        );
-        }
+
+
+            Instantiate(
+                Bala, 
+                referenciaDePosicion.position, 
+                referenciaDePosicion.rotation
+            );
+            }
 
         if(Input.GetKeyDown(KeyCode.Z)){
-        Instantiate(
-            MegaBala, 
-            referenciaDePosicion.position, 
-            referenciaDePosicion.rotation
-        );
+
+            Instantiate(
+                MegaBala, 
+                spawnerMegaBala.position, 
+                spawnerMegaBala.rotation
+            );
+            Instantiate(
+                MegaBala, 
+                spawnerMegaBala.position = spawnerMegaBala.position + new Vector3(horizontal * velocidad * Time.deltaTime, diagonal + 10 * velocidad * Time.deltaTime, 0), 
+                spawnerMegaBala.rotation
+            );
+
         }
 
         if (Input.GetKeyDown ("joystick 1 button 0")){
