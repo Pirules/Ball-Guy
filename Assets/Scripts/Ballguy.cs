@@ -6,17 +6,23 @@ using UnityEngine;
 public class Ballguy : MonoBehaviour
 {
     public float velocidad = 5;
-    public float Health = 100; 
+    public int maxEnergy = 100;
+    public int currentEnergy;
+    public EnergyBar energybar;
     public GameObject Bala;
     public GameObject MegaBala;
     public Transform referenciaDePosicion;
     public Transform spawnerMegaBala;
+    private float nextActionTime = 0.0f;
+    public float frecuencia_de_disparo = 1f;
     [SerializeField]
     private Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        currentEnergy = maxEnergy;
+        energybar.setMaxEnergy(maxEnergy);
     }
     
 
@@ -26,38 +32,67 @@ public class Ballguy : MonoBehaviour
         
         float horizontal = Input.GetAxis("Horizontal");        
         float diagonal = Input.GetAxis("Vertical");
+        
+        if (currentEnergy < 100)
+        {
+            if (Time.time > nextActionTime ) {
+            nextActionTime += frecuencia_de_disparo;
+            GainEnergy(10);
+        }
+        }
+
 
         //print(horizontal);
         if(Input.GetKeyDown(KeyCode.Space)){
+            if(currentEnergy < 20){
 
+            }
+
+            else{
+                Instantiate(
+                    Bala, 
+                    referenciaDePosicion.position, 
+                    referenciaDePosicion.rotation
+                );
+                if(currentEnergy > 0){
+                    TakeEnergy(20);
+                }
+                
+            }
+
+
+
+            }
+
+        if(Input.GetKeyDown(KeyCode.Z)){
+            if(currentEnergy <40){
+                
+            }
+            else{
+                Instantiate(
+                    MegaBala, 
+                    spawnerMegaBala.position, 
+                    spawnerMegaBala.rotation
+                );
+                Instantiate(
+                    MegaBala, 
+                    spawnerMegaBala.position + new Vector3(horizontal * velocidad * Time.deltaTime, diagonal + 10 * velocidad * Time.deltaTime, 0), 
+                    spawnerMegaBala.rotation
+                );
+                if(currentEnergy > 0){
+                    TakeEnergy(40);
+                }
+            }
+
+
+        }
+
+        if (Input.GetKeyDown ("joystick 1 button 0")){
 
             Instantiate(
                 Bala, 
                 referenciaDePosicion.position, 
                 referenciaDePosicion.rotation
-            );
-            }
-
-        if(Input.GetKeyDown(KeyCode.Z)){
-
-            Instantiate(
-                MegaBala, 
-                spawnerMegaBala.position, 
-                spawnerMegaBala.rotation
-            );
-            Instantiate(
-                MegaBala, 
-                spawnerMegaBala.position = spawnerMegaBala.position + new Vector3(horizontal * velocidad * Time.deltaTime, diagonal + 10 * velocidad * Time.deltaTime, 0), 
-                spawnerMegaBala.rotation
-            );
-
-        }
-
-        if (Input.GetKeyDown ("joystick 1 button 0")){
-        Instantiate(
-            Bala, 
-            referenciaDePosicion.position, 
-            referenciaDePosicion.rotation
         );
         }
         
@@ -67,6 +102,18 @@ public class Ballguy : MonoBehaviour
             0,
             Space.World
         );
+
+        void TakeEnergy(int loss)
+        {
+            currentEnergy -= loss;
+            energybar.SetEnergy(currentEnergy);
+        }
+
+        void GainEnergy(int gain)
+        {
+            currentEnergy += gain;
+            energybar.SetEnergy(currentEnergy);
+        }
         
     }
 }
