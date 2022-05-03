@@ -7,17 +7,25 @@ public class Enemy : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth;
     public Healthbar healthbar;
+    public float speed = 1.19f;
+    Vector3 pointA;
+    Vector3 pointB;
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
         healthbar.setMaxHealth(maxHealth);
+        pointA = new Vector3(0, 8.09f, -2.48f);
+        pointB = new Vector3(5, 8.09f, -2.48f);
     }
 
     // Update is called once per frame
     void Update()
     {
         Debug.Log(this.currentHealth);
+        //PingPong between 0 and 1
+        float time = Mathf.PingPong(Time.time * speed, 1);
+        transform.position = Vector3.Lerp(pointA, pointB, time);
 
         if (currentHealth <= 0){
         Debug.Log("Hello, World");
