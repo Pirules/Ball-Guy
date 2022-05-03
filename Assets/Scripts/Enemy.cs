@@ -17,17 +17,23 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Debug.Log(this.currentHealth);
 
         if (currentHealth <= 0){
-            Destroy(gameObject);
+        Debug.Log("Hello, World");
+         //Do everything you want with this part, but before destroying the enemy, add this:
+         GameObject.Find(gameObject.name + ("spawn point")).GetComponent<Respawn>().Death = true;
+         //Then destroy it
+         Destroy(gameObject);
         }   
         
     }
     void OnCollisionEnter(Collision c){
         GameObject projectil = c.gameObject;
         if (projectil.CompareTag("Bala")){
+            Debug.Log("pre bala");
             TakeDamage(10);
+            Debug.Log("post bala");
         }
 
         if (projectil.CompareTag("MegaBala")){
@@ -36,7 +42,7 @@ public class Enemy : MonoBehaviour
     }
        
     void TakeDamage(int damage){
-        currentHealth -= damage;
-        healthbar.setHealth(currentHealth);
+        this.currentHealth -= damage;
+        //healthbar.setHealth(this.currentHealth);
     }
 }
