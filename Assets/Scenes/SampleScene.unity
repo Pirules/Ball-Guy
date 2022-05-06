@@ -400,6 +400,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocidad: 5
   maxEnergy: 100
+  maxHealth: 100
+  currentHealth: 0
+  healthbar: {fileID: 0}
   currentEnergy: 0
   energybar: {fileID: 0}
   Bala: {fileID: 0}
@@ -1336,15 +1339,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d12bf844f5b24da3a4abc221ef1bbc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidad: 5
+  velocidad: 10
   maxEnergy: 100
+  maxHealth: 100
+  currentHealth: 0
+  healthbar: {fileID: 153073215}
   currentEnergy: 0
   energybar: {fileID: 1443839038}
   Bala: {fileID: 8033506663059128789, guid: 78625cf3b1e59445da79ea4335b2ddef, type: 3}
   MegaBala: {fileID: 5790776781813161469, guid: e728e6c34d674c24d941ec241e4aa7ea, type: 3}
   referenciaDePosicion: {fileID: 1205597005}
   spawnerMegaBala: {fileID: 681173020}
-  frecuencia_de_disparo: 1
+  frecuencia_de_disparo: 0.5
   rb: {fileID: 173489077}
 --- !u!1 &1231452599
 GameObject:

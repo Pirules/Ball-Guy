@@ -7,6 +7,9 @@ public class Ballguy : MonoBehaviour
 {
     public float velocidad = 5;
     public int maxEnergy = 100;
+    public int maxHealth = 100;
+    public int currentHealth;
+    public Healthbar healthbar;
     public int currentEnergy;
     public EnergyBar energybar;
     public GameObject Bala;
@@ -20,6 +23,8 @@ public class Ballguy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentHealth = maxHealth;
+        healthbar.setMaxHealth(maxHealth);
         rb = GetComponent<Rigidbody>();
         currentEnergy = maxEnergy;
         energybar.setMaxEnergy(maxEnergy);
@@ -115,5 +120,18 @@ public class Ballguy : MonoBehaviour
             energybar.SetEnergy(currentEnergy);
         }
         
+        if (currentHealth <= 0){
+        Debug.Log("YOU DIED :D");
+         Destroy(gameObject);
+        }   
+    }
+
+    void OnCollisionEnter(Collision c){
+        TakeDamage(10);
+    }
+
+    void TakeDamage(int damage){
+        this.currentHealth = currentHealth - damage;
+        healthbar.setHealth(this.currentHealth);
     }
 }
