@@ -15,8 +15,8 @@ public class Enemy : MonoBehaviour
     {
         currentHealth = maxHealth;
         healthbar.setMaxHealth(maxHealth);
-        pointA = new Vector3(0, 8.09f, -2.48f);
-        pointB = new Vector3(5, 8.09f, -2.48f);
+        pointA = new Vector3(7, 3.5f, -4.8f);
+        pointB = new Vector3(2, 3.5f, -4.8f);
     }
 
     // Update is called once per frame
@@ -50,7 +50,7 @@ public class Enemy : MonoBehaviour
     }
        
     void TakeDamage(int damage){
-        this.currentHealth -= damage;
-        //healthbar.setHealth(this.currentHealth);
+        this.currentHealth = currentHealth - damage;
+        healthbar.setHealth(this.currentHealth);
     }
 }

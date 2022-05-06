@@ -20,7 +20,7 @@ using UnityEngine;
          if(Death == true) {
              //If my enemy is death, a timer will start.
          Timer += Time.deltaTime;
-         
+         Debug.Log("Que onda!");
          }
          //If the timer is bigger than cooldown.
              if(Timer >= Cooldown) {
