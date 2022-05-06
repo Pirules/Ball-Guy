@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -121,8 +122,9 @@ public class Ballguy : MonoBehaviour
         }
         
         if (currentHealth <= 0){
-        Debug.Log("YOU DIED :D");
-         Destroy(gameObject);
+            Debug.Log("YOU DIED :D");
+            Destroy(gameObject);
+            SceneManager.LoadScene("Death Screen");
         }   
     }
 
