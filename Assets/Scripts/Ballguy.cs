@@ -129,6 +129,10 @@ public class Ballguy : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision c){
+        GameObject Enemigo = c.gameObject;
+        //if (Enemigo.CompareTag("Enemigo")){
+        //    TakeDamage(10);
+        //}
         TakeDamage(10);
     }
 

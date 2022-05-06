@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 4196173714593938562}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -214,7 +214,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 734760912675021624}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.968835, y: 8.09, z: -2.48}
+  m_LocalPosition: {x: 8.968835, y: 15, z: -2.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 734760913257546538}
@@ -238,6 +238,8 @@ MonoBehaviour:
   currentHealth: 0
   healthbar: {fileID: 734760913045260753}
   speed: 0.8
+  offset1: {x: 0, y: 0, z: 0}
+  offset2: {x: 0, y: 0, z: 0}
 --- !u!54 &4196173714593938562
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -679,6 +681,8 @@ MonoBehaviour:
   currentHealth: 0
   healthbar: {fileID: 734760913045260753}
   speed: 1.19
+  offset1: {x: 5.07, y: 0, z: 0}
+  offset2: {x: 10.07, y: 0, z: 0}
 --- !u!54 &734760913257546540
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -726,6 +730,8 @@ MonoBehaviour:
   currentHealth: 0
   healthbar: {fileID: 0}
   speed: 1.19
+  offset1: {x: 0, y: 0, z: 0}
+  offset2: {x: 0, y: 0, z: 0}
 --- !u!1 &734760913549653970
 GameObject:
   m_ObjectHideFlags: 0

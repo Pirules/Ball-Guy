@@ -9,6 +9,7 @@ using UnityEngine;
        public GameObject Enemy;
        public string EnemyName;
        GameObject LastEnemy;
+
      // Use this for initialization
      void Start () {
      //If you want, add this line:

@@ -8,15 +8,17 @@ public class Enemy : MonoBehaviour
     public int currentHealth;
     public Healthbar healthbar;
     public float speed = 1.19f;
+    public Vector3 offset1;
+    public Vector3 offset2;
     Vector3 pointA;
     Vector3 pointB;
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = maxHealth;
+        currentHealth = maxHealth;  
         healthbar.setMaxHealth(maxHealth);
-        pointA = new Vector3(7, 3.5f, -4.8f);
-        pointB = new Vector3(2, 3.5f, -4.8f);
+        pointA = GameObject.Find("Jugador").transform.position + offset1;
+        pointB = GameObject.Find("Jugador").transform.position + offset2;
     }
 
     // Update is called once per frame
